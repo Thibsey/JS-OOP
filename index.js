@@ -66,22 +66,50 @@
 
 
 
-// Lesson 4 & 5: Classes and Classes Constructors.
-class User {
-    constructor(email, name) {
-        this.email = email;
-        this.name = name;
+// Lesson 4 & 5:
+// Classes and Classes Constructors.
+// class User {
+//     constructor(email, name) {
+//         this.email = email;
+//         this.name = name;
         
-    }
+//     }
     
-}
+// }
 
-var userOne = new User('thibs@awesome.com', 'Thibs');
-var userTwo = new User('yoshi@mariocorp.com', 'Yoshi');
-console.log(userOne);
-console.log(userTwo);
+// var userOne = new User('thibs@awesome.com', 'Thibs');
+// var userTwo = new User('yoshi@mariocorp.com', 'Yoshi');
+// console.log(userOne);
+// console.log(userTwo);
 
 // the 'new' keyword
 // - creates a new empty object {}
 // - sets the value of 'this' to be the new empty object
 // - calls the constructor method
+
+
+// Lesson 6
+
+class User {
+
+    constructor(email, name) {
+        this.email = email;
+        this.name = name;
+
+    }
+
+    login(){
+        console.log(this.email, 'just logged in');
+    }
+
+    logout(){
+        console.log(this.email, 'just logged out');
+    }
+}
+
+var userOne = new User('thibs@awesome.com', 'Thibs');
+var userTwo = new User('yoshi@mariocorp.com', 'Yoshi');
+
+userOne.login();
+userTwo.logout();
+
