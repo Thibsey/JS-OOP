@@ -90,26 +90,63 @@
 
 // Lesson 6
 
+// class User {
+
+//     constructor(email, name) {
+//         this.email = email;
+//         this.name = name;
+
+//     }
+
+//     login(){
+//         console.log(this.email, 'just logged in');
+//     }
+
+//     logout(){
+//         console.log(this.email, 'just logged out');
+//     }
+// }
+
+// var userOne = new User('thibs@awesome.com', 'Thibs');
+// var userTwo = new User('yoshi@mariocorp.com', 'Yoshi');
+
+// userOne.login();
+// userTwo.logout();
+
+
+// Lesson 7
+// Method Chaining by returning
+// "this" in every Method so that
+// you can add a new method in a
+// Chain of methodes. 
+
 class User {
 
     constructor(email, name) {
         this.email = email;
         this.name = name;
-
+        this.score = 0;
     }
 
     login(){
         console.log(this.email, 'just logged in');
+        return this;
     }
 
     logout(){
         console.log(this.email, 'just logged out');
+        return this;
+    }
+
+    updateScore () {
+        this.score++;
+        console.log(this.email, 'score is now', this.score);
+        return this;
     }
 }
 
 var userOne = new User('thibs@awesome.com', 'Thibs');
 var userTwo = new User('yoshi@mariocorp.com', 'Yoshi');
 
-userOne.login();
-userTwo.logout();
+userOne.login().updateScore().updateScore().logout();
 
