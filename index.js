@@ -120,6 +120,39 @@
 // you can add a new method in a
 // Chain of methodes. 
 
+// class User {
+
+//     constructor(email, name) {
+//         this.email = email;
+//         this.name = name;
+//         this.score = 0;
+//     }
+
+//     login(){
+//         console.log(this.email, 'just logged in');
+//         return this;
+//     }
+
+//     logout(){
+//         console.log(this.email, 'just logged out');
+//         return this;
+//     }
+
+//     updateScore () {
+//         this.score++;
+//         console.log(this.email, 'score is now', this.score);
+//         return this;
+//     }
+// }
+
+// var userOne = new User('thibs@awesome.com', 'Thibs');
+// var userTwo = new User('yoshi@mariocorp.com', 'Yoshi');
+
+// userOne.login().updateScore().updateScore().logout();
+
+
+// Lesson 8
+// Inheritance of classes
 class User {
 
     constructor(email, name) {
@@ -128,25 +161,37 @@ class User {
         this.score = 0;
     }
 
-    login(){
+    login() {
         console.log(this.email, 'just logged in');
         return this;
     }
 
-    logout(){
+    logout() {
         console.log(this.email, 'just logged out');
         return this;
     }
 
-    updateScore () {
+    updateScore() {
         this.score++;
         console.log(this.email, 'score is now', this.score);
         return this;
     }
 }
 
-var userOne = new User('thibs@awesome.com', 'Thibs');
-var userTwo = new User('yoshi@mariocorp.com', 'Yoshi');
+class Admin extends User {
+    
+    deleteUser() {
+        users = users.filter(u => {
+            return u.email != user.email;
+        })
+    }
+}
 
+var userOne = new User('mario@mariocorp.com', 'Mario');
+var userTwo = new User('yoshi@mariocorp.com', 'Yoshi');
+var admin = new Admin('thibs@awesome.com', 'Thibs');
 userOne.login().updateScore().updateScore().logout();
 
+var users = [userOne, userTwo, admin];
+admin.deleteUser(userOne);
+console.log(users);
